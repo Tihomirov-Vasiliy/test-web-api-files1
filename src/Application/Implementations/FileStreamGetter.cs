@@ -11,7 +11,10 @@ namespace Application.Implementations
         /// <returns></returns>
         public FileStream Get(string filePath)
         {
-            return File.OpenRead(filePath);
+            if (File.Exists(filePath))
+                return File.OpenRead(filePath);
+            else
+                return null;
         }
     }
 }

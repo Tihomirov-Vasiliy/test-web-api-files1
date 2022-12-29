@@ -18,7 +18,11 @@ namespace Services.Implementations
 
         public FileStream GetStreamOfFile(string fileName)
         {
-            return _fileGetter.Get(Path.Combine(_filesDirectory, fileName));
+            FileStream fileStream = _fileGetter.Get(Path.Combine(_filesDirectory, fileName));
+            if (fileStream == null)
+                throw new FileNotFoundException(fileName);
+
+            return fileStream;
         }
     }
 }
