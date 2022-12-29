@@ -14,12 +14,13 @@ namespace WebApi.Controllers
         {
             _createFileService = createFileService;
         }
+
         [HttpPost]
         public async Task<ActionResult> CreateFileAsync([FromBody] FileContentDto fileContent)
         {
             string resultedFileName = await _createFileService.CreateFileAsync(fileContent.Text);
             
-            return CreatedAtRoute("DownloadFileAsync", resultedFileName);
+            return CreatedAtRoute("DownloadFile", resultedFileName);
         }
     }
 }

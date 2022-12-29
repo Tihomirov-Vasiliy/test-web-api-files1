@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IFileCreator, FileCreator>();
-            services.AddScoped<IFileContentGetter, FileContentGetter>();
+            services.AddScoped<IFileStreamGetter, FileStreamGetter>();
 
             return services;
         }

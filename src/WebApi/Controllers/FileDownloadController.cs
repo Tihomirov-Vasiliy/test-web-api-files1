@@ -1,5 +1,4 @@
-﻿using Domain;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 
 namespace WebApi.Controllers
@@ -15,13 +14,13 @@ namespace WebApi.Controllers
             _getFileService = getFileService;
         }
 
-        [HttpGet(Name = "DownloadFileAsync")]
-        public async Task<ActionResult> DownloadFileAsync(string fileName)
+        [HttpGet(Name = "DownloadFile")]
+        public IActionResult DownloadFile(string fileName)
         {
-            //I think here i can return BaseFile entity and get from it content and filename with correct extension
-            byte[] content = await _getFileService.GetFileAsync(fileName);
+            FileStream stream = _getFileService.GetStreamOfFile(fileName);
 
-            return File(content, "text/plain", fileName);
+            return File(stream, "application/octet-stream", fileName, true);
         }
+
     }
 }

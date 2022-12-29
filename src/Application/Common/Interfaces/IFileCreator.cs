@@ -2,6 +2,6 @@
 {
     public interface IFileCreator
     {
-        Task CreateFileAsync(string filePath, string content);
+        Task CreateAsync(string filePath, string content);
     }
 }
