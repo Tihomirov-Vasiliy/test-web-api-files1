@@ -2,6 +2,6 @@
 {
     public interface IGetFileService
     {
-        Task<byte[]> GetFileAsync(string fileName);
+        FileStream GetStreamOfFile(string fileName);
     }
 }

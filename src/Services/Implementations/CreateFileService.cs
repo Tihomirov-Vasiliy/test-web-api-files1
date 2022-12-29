@@ -15,10 +15,11 @@ namespace Services.Implementations
             _fileCreator = fileCreator;
             _fileDirectory = directoryOptions.Value.Location;
         }
+
         public async Task<string> CreateFileAsync(string content)
         {
-            string fileName = Guid.NewGuid().ToString();
-            await _fileCreator.CreateFileAsync($"{_fileDirectory}\\{fileName}.txt", content);
+            string fileName = $"{Guid.NewGuid()}.txt";
+            await _fileCreator.CreateAsync(Path.Combine(_fileDirectory, fileName), content);
 
             return fileName;
         }
