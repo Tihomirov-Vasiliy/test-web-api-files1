@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Application.Common.Authentication;
+using Microsoft.Extensions.Configuration;
+using Services.Authentication;
 using Services.Implementations;
 using Services.Interfaces;
 using Services.Options;
@@ -13,6 +15,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.Configure<DirectoryOptions>(config.GetSection(DirectoryOptions.Directory));
             services.AddScoped<ICreateFileService, CreateFileService>(); 
             services.AddScoped<IGetFileService, GetFileService>();
+            services.AddScoped<IJwtAuthorizationService, JwtAuthorizationService>();
 
             return services;
         }
