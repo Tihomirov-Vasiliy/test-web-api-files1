@@ -2,11 +2,11 @@
 
 namespace WebApi.Dtos
 {
-    public class ErrorDetails
+    public class ResponseDetails
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }
-        public ErrorDetails(int statusCode, string message)
+        public ResponseDetails(int statusCode, string message)
         {
             StatusCode = statusCode;
             Message = message;

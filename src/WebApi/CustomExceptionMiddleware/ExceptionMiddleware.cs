@@ -1,4 +1,5 @@
-﻿using WebApi.Dtos;
+﻿using Domain.Exceptions;
+using WebApi.Dtos;
 
 namespace WebApi.CustomExceptionMiddleware
 {
@@ -30,12 +31,16 @@ namespace WebApi.CustomExceptionMiddleware
                     context.Response.StatusCode = 404;
                     errorMessage = exception.Message;
                     break;
+                case WrongLoginOrPasswordException:
+                    context.Response.StatusCode = 400;
+                    errorMessage = exception.Message;
+                    break;
                 default:
                     context.Response.StatusCode = 500;
-                    errorMessage = "Internal Server Error: something went wrong in data";
+                    errorMessage = $"Internal Server Error: something went wrong on the server";
                     break;
             }
-            await context.Response.WriteAsync(new ErrorDetails(context.Response.StatusCode, errorMessage).ToString());
+            await context.Response.WriteAsync(new ResponseDetails(context.Response.StatusCode, errorMessage).ToString());
         }
     }
 }

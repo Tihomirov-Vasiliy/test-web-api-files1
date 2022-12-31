@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 
 namespace WebApi.Controllers
@@ -14,6 +15,7 @@ namespace WebApi.Controllers
             _getFileService = getFileService;
         }
 
+        [Authorize]
         [HttpGet(Name = "DownloadFile")]
         public IActionResult DownloadFile(string fileName)
         {

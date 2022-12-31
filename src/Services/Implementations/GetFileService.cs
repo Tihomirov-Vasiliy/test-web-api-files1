@@ -20,7 +20,7 @@ namespace Services.Implementations
         {
             FileStream fileStream = _fileGetter.Get(Path.Combine(_filesDirectory, fileName));
             if (fileStream == null)
-                throw new FileNotFoundException(fileName);
+                throw new FileNotFoundException($"File with name '{fileName}' was not found in directory");
 
             return fileStream;
         }
