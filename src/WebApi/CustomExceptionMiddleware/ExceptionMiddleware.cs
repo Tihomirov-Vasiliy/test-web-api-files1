@@ -1,4 +1,4 @@
-﻿using Domain.Exceptions;
+﻿using Infrastructure.Exceptions;
 using WebApi.Dtos;
 
 namespace WebApi.CustomExceptionMiddleware

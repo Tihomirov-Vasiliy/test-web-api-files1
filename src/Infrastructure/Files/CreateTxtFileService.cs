@@ -1,16 +1,16 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Interfaces;
+using Application.Interfaces.Services;
 using Microsoft.Extensions.Options;
-using Services.Interfaces;
-using Services.Options;
+using Infrastructure.Options;
 
-namespace Services.Implementations
+namespace Infrastructure.Files
 {
-    public class CreateFileService : ICreateFileService
+    public class CreateTxtFileService : IFileCreateService
     {
         private IFileCreator _fileCreator;
         private string _fileDirectory;
 
-        public CreateFileService(IFileCreator fileCreator, IOptions<DirectoryOptions> directoryOptions)
+        public CreateTxtFileService(IFileCreator fileCreator, IOptions<DirectoryOptions> directoryOptions)
         {
             _fileCreator = fileCreator;
             _fileDirectory = directoryOptions.Value.Location;

@@ -1,14 +1,12 @@
-﻿using Application.Common.Authentication;
-using Domain.Constants;
-using Domain.Entities;
-using Domain.Exceptions;
+﻿using Application.Interfaces.Services;
+using Infrastructure.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Services.Authentication
+namespace Infrastructure.Authentication
 {
     public class JwtAuthorizationService : IJwtAuthorizationService
     {
@@ -18,10 +16,6 @@ namespace Services.Authentication
         {
             _configuration = configuration;
         }
-        /// <summary>
-        /// </summary>
-        /// <param name="login"></param>
-        /// <param name="password"></param>
         /// <returns>Valid Jwt token</returns>
         /// <exception cref="WrongLoginOrPasswordException">Throws exception when login or password was wrong</exception>
         public string Authorize(string login, string password)

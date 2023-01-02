@@ -1,9 +1,8 @@
-﻿using Application.Common.Authentication;
+﻿using Application.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
-using Services.Authentication;
-using Services.Implementations;
-using Services.Interfaces;
-using Services.Options;
+using Infrastructure.Authentication;
+using Infrastructure.Files;
+using Infrastructure.Options;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -13,8 +12,8 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             //Getting directory path through Options
             services.Configure<DirectoryOptions>(config.GetSection(DirectoryOptions.Directory));
-            services.AddScoped<ICreateFileService, CreateFileService>(); 
-            services.AddScoped<IGetFileService, GetFileService>();
+            services.AddScoped<IFileCreateService, CreateTxtFileService>(); 
+            services.AddScoped<IFileGetService, GetFileService>();
             services.AddScoped<IJwtAuthorizationService, JwtAuthorizationService>();
 
             return services;

@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace Infrastructure.Authentication
 {
     public class User
     {

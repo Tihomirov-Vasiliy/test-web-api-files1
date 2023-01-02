@@ -1,5 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Implementations;
+﻿using Application.Implementations;
+using Application.Interfaces;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IFileCreator, FileCreator>();
-            services.AddScoped<IFileStreamGetter, FileStreamGetter>();
+            services.AddScoped<IFileGetter, FileGetter>();
 
             return services;
         }

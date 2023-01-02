@@ -1,4 +1,4 @@
-﻿namespace Services.Options
+﻿namespace Infrastructure.Options
 {
     public class DirectoryOptions
     {

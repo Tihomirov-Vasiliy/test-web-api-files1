@@ -1,4 +1,4 @@
-﻿using Application.Common.Authentication;
+﻿using Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dtos;
 
