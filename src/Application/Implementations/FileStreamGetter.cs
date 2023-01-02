@@ -4,7 +4,7 @@ namespace Application.Implementations
 {
     public class FileGetter : IFileGetter
     {
-        public FileStream GetStream(string filePath)
+        public Stream GetStream(string filePath)
         {
             if (File.Exists(filePath))
                 return File.OpenRead(filePath);

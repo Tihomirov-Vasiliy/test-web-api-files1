@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         [HttpGet(Name = "DownloadFile")]
         public IActionResult DownloadFile(string fileName)
         {
-            FileStream stream = _getFileService.GetStreamOfFile(fileName);
+            Stream stream = _getFileService.GetStreamOfFile(fileName);
 
             return File(stream, "application/octet-stream", fileName, true);
         }
