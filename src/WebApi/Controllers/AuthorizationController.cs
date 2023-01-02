@@ -4,8 +4,9 @@ using WebApi.Dtos;
 
 namespace WebApi.Controllers
 {
-    [Route("api/v1/authentication")]
     [ApiController]
+    [Route("api/authentication")]
+    [ApiVersion("1.0")]
     public class AuthorizationController : ControllerBase
     {
         private IJwtAuthorizationService _authenticationService;

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -39,6 +41,14 @@ namespace Microsoft.Extensions.DependencyInjection
                     Scheme = "Bearer"
                 });
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
+
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true; 
+                options.DefaultApiVersion = ApiVersion.Default;
+                options.ApiVersionReader = new MediaTypeApiVersionReader("version"); // Use in accept header
+                options.ReportApiVersions = true; // Reports about versions of api in (api-supported-versions) header
             });
             return services;
         }
