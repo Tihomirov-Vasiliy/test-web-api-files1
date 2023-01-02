@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/v1/filedownload")]
     [ApiController]
+    [Route("api/filedownload")]
+    [ApiVersion("1.0")]
     public class FileDownloadController : ControllerBase
     {
         private IFileGetService _getFileService;

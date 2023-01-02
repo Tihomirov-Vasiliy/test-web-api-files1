@@ -4,8 +4,9 @@ using WebApi.Dtos;
 
 namespace WebApi.Controllers
 {
-    [Route("api/v1/filecreate")]
     [ApiController]
+    [Route("api/filecreate")]
+    [ApiVersion("1.0")]
     public class FileCreateController : ControllerBase
     {
         private IFileCreateService _createFileService;
