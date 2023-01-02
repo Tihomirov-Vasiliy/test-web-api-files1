@@ -2,6 +2,6 @@
 {
     public interface IFileGetter
     {
-        FileStream GetStream(string filePath);
+        Stream GetStream(string filePath);
     }
 }

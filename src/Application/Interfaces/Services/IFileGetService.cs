@@ -2,6 +2,6 @@
 {
     public interface IFileGetService
     {
-        FileStream GetStreamOfFile(string fileName);
+        Stream GetStreamOfFile(string fileName);
     }
 }
