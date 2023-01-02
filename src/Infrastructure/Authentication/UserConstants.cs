@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Domain.Constants
+﻿namespace Infrastructure.Authentication
 {
     public class UserConstants
     {

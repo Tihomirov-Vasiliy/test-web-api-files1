@@ -1,4 +1,4 @@
-﻿namespace Domain.Exceptions
+﻿namespace Infrastructure.Exceptions
 {
     public class WrongLoginOrPasswordException : Exception
     {

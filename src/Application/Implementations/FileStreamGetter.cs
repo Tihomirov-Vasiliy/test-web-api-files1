@@ -1,15 +1,10 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Interfaces;
 
 namespace Application.Implementations
 {
-    public class FileStreamGetter : IFileStreamGetter
+    public class FileGetter : IFileGetter
     {
-        /// <summary>
-        /// Represents method to get Stream of file by its path
-        /// </summary>
-        /// <param name="filePath">Full path to file</param>
-        /// <returns>FileStream of file if exists. Else return null</returns>
-        public FileStream Get(string filePath)
+        public FileStream GetStream(string filePath)
         {
             if (File.Exists(filePath))
                 return File.OpenRead(filePath);

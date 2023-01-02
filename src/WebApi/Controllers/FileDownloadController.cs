@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Application.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Services.Interfaces;
 
 namespace WebApi.Controllers
 {
@@ -8,9 +8,9 @@ namespace WebApi.Controllers
     [ApiController]
     public class FileDownloadController : ControllerBase
     {
-        private IGetFileService _getFileService;
+        private IFileGetService _getFileService;
 
-        public FileDownloadController(IGetFileService getFileService)
+        public FileDownloadController(IFileGetService getFileService)
         {
             _getFileService = getFileService;
         }

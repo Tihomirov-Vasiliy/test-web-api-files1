@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Services.Interfaces;
+﻿using Application.Interfaces.Services;
+using Microsoft.AspNetCore.Mvc;
 using WebApi.Dtos;
 
 namespace WebApi.Controllers
@@ -8,9 +8,9 @@ namespace WebApi.Controllers
     [ApiController]
     public class FileCreateController : ControllerBase
     {
-        private ICreateFileService _createFileService;
+        private IFileCreateService _createFileService;
 
-        public FileCreateController(ICreateFileService createFileService)
+        public FileCreateController(IFileCreateService createFileService)
         {
             _createFileService = createFileService;
         }
