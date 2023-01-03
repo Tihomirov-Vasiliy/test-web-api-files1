@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Infrastructure.Authentication;
 using Infrastructure.Files;
 using Infrastructure.Options;
+using Application.Interfaces;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -12,6 +13,8 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             //Getting directory path through Options
             services.Configure<DirectoryOptions>(config.GetSection(DirectoryOptions.Directory));
+            services.AddScoped<IFileCreator, FileCreator>();
+            services.AddScoped<IFileGetter, FileGetter>();
             services.AddScoped<IFileCreateService, CreateTxtFileService>(); 
             services.AddScoped<IFileGetService, FileGetService>();
             services.AddScoped<IJwtAuthorizationService, JwtAuthorizationService>();

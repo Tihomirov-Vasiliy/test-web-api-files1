@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces;
 
-namespace Application.Implementations
+namespace Infrastructure.Files
 {
     public class FileGetter : IFileGetter
     {
@@ -9,7 +9,7 @@ namespace Application.Implementations
             if (File.Exists(filePath))
                 return File.OpenRead(filePath);
             else
-                return null;
+                throw new FileNotFoundException($"File with name '{Path.GetFileName(filePath)}' was not found in directory");
         }
     }
 }

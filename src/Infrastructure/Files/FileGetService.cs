@@ -20,9 +20,6 @@ namespace Infrastructure.Files
         {
             Stream fileStream = _fileGetter.GetStream(Path.Combine(_filesDirectory, fileName));
 
-            if (fileStream == null)
-                throw new FileNotFoundException($"File with name '{fileName}' was not found in directory");
-
             return fileStream;
         }
     }

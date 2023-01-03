@@ -5,8 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-//Add services from application layer
-builder.Services.AddApplicationServices();
 //Add services from service layer
 builder.Services.AddServiceLayerServices(builder.Configuration);
 //Add services from web api layer
